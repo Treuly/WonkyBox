@@ -1,0 +1,9 @@
+svg {
+    height: 48vh;
+    display: block;
+    margin: auto;
+    position: static;
+    top: 10%;
+    left: 50%;
+    /* transform: translateX(-15%); */
+}
