@@ -27,23 +27,23 @@ const Main = () => {
   }, []);
 
 //call to get the farm info from the backend database
-  let[farm, setFarm] = useState([]);
+  // let[farm, setFarm] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://127.0.0.1:8000/GetFarmInfo/`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((resp) => setFarm(resp))
-      .catch((error) => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://127.0.0.1:8000/GetFarmInfo/`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((resp) => setFarm(resp))
+  //     .catch((error) => console.log(error));
+  // }, []);
 
 
-  // console.log(ProduceArray)
+  console.log(ProduceArray)
 
   function clearPreviousRegions() {
     for (let i = 0; i < previousLocations.length; i++) {
