@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/WonkyBox/static/css/main.98a9a224.css",
+    "main.js": "/WonkyBox/static/js/main.dc2995ff.js",
+    "static/js/787.bc1f1293.chunk.js": "/WonkyBox/static/js/787.bc1f1293.chunk.js",
+    "static/media/wonkylogo.png": "/WonkyBox/static/media/wonkylogo.655d3415c7831830a7c4.png",
+    "index.html": "/WonkyBox/index.html",
+    "main.98a9a224.css.map": "/WonkyBox/static/css/main.98a9a224.css.map",
+    "main.dc2995ff.js.map": "/WonkyBox/static/js/main.dc2995ff.js.map",
+    "787.bc1f1293.chunk.js.map": "/WonkyBox/static/js/787.bc1f1293.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98a9a224.css",
+    "static/js/main.dc2995ff.js"
+  ]
+}

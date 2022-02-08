@@ -1,0 +1,8 @@
+{
+  "short_name": "Wonky Farmstead",
+  "name": "Wonky Farmstead Website",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
