@@ -1,3 +1,5 @@
+@import url("//fonts.googleapis.com/css?family=Anonymous+Pro");
+
 .App {
   text-align: center;
 }
@@ -15,6 +17,7 @@ body {
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
+  overflow-y:auto;
     /* position: sticky; */
 
 }
@@ -30,12 +33,13 @@ body {
 
 .produceContainer{
   display: flex;
-  height: 80vh;
+  height: auto;
   /* position: -webkit-sticky;
   position: sticky; */
 }
 #produceContainer{
   display: flex;
+  height:60vh;
   /* position: -webkit-sticky;
   position: sticky; */
 }
@@ -60,7 +64,7 @@ body {
 
 
 @media only screen and (max-width: 900px) {
-  
+
 }
 
 @media only screen and (max-width: 600px) {

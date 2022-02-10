@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 
 const Main = styled("div")`
@@ -19,7 +19,7 @@ const DropDownHeader = styled("div")`
   padding: 0.4em 2em 0.4em 1em;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #969733;
   background: #ffffff;
 `;
@@ -34,7 +34,7 @@ const DropDownList = styled("ul")`
   border: 2px solid #e5e5e5;
   box-sizing: border-box;
   color: #969733;
-  font-size: 1.3rem;
+  font-size: 1.2 rem;
   font-weight: 500;
   &:first-child {
     padding-top: 0.8em;
@@ -52,17 +52,31 @@ const options = ["Thursday", "Friday"];
 
 const DropDownDay = () => {
 
+    
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
+
   
     const toggling = () => setIsOpen(!isOpen);
   
     const onOptionClicked = value => () => {
       setSelectedOption(value);
       setIsOpen(false);
-      console.log(selectedOption);
+
     };
 
+    useEffect(() => {
+      const useOption = selectedOption;
+      console.log(useOption);
+
+    })
+
+
+// const selectedOption = useRef(null);
+// const [isOpen, setIsOpen] = useState(false);
+// const toggling = () => setIsOpen(!isOpen);
+
+// const onOptionClicked = () => setIsOpen(!isOpen);
 
   return (
     <div>
