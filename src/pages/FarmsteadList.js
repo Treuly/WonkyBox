@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import Farm from '../components/Farm';
+import SingleFarm from '../components/SingleFarm';
 import "../styles/Produce.css";
 
 
@@ -31,7 +31,7 @@ const FarmsteadPage = () => {
       <div className = 'producelist'>
               {/* Make new list from array items for UI showing only produce name */}
               {farmList.map((farm) => 
-              (<Farm key={farm.id} farm={farm} />))}
+              (<SingleFarm key={farm.id} singleFarm={farm} />))}
       </div>
       </div>
 

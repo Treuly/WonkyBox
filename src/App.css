@@ -10,3 +10,70 @@ body {
 .highlight {
   background-color: #c0ffee;
 }
+
+.contentbody{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+    /* position: sticky; */
+
+}
+.mapContainer{
+  /* position: fixed;
+  z-index: 999; */
+  /* position: -webkit-sticky; */
+  /* position: sticky; */
+  top: 0;
+  display:flex;
+  justify-content: center;
+}
+
+.produceContainer{
+  display: flex;
+  height: 80vh;
+  /* position: -webkit-sticky;
+  position: sticky; */
+}
+#produceContainer{
+  display: flex;
+  /* position: -webkit-sticky;
+  position: sticky; */
+}
+
+/* CSS for dropdown menu */
+
+.dropContainer{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dropDay{
+  display: flex;
+}
+.dropRegion{
+  display: flex;
+
+}
+
+
+@media only screen and (max-width: 900px) {
+  
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar .rightSide a {
+    display: none;
+  }
+
+  .dropDownContainer  {
+    justify-content: flex-end;
+    padding-right: 50px;
+  }
+
+}
+
+@media only screen and (min-width: 600px) {
+}

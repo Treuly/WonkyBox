@@ -4,14 +4,14 @@ import "../styles/Produce.css";
 
 
 
-const Farm = ({farm}) => {
+const SingleFarm = ({singleFarm}) => {
   return (
     <Link
-      to={`/farm/${farm.id}`}
+      to={`/farm/${singleFarm.id}`}
       className="produce"
     >
-      <h3>{farm.name}</h3>
+      <h3>{singleFarm.name}</h3>
     </Link>
   );
 };
-export default Farm;
+export default SingleFarm;
