@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 const Main = styled("div")`
   font-family: sans-serif;
   background: #f0f0f0;
-  height: 100vh;
+  height: 80vh;
 `;
 
 const DropDownContainer = styled("div")`
@@ -19,7 +19,7 @@ const DropDownHeader = styled("div")`
   padding: 0.4em 2em 0.4em 1em;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   color: #969733;
   background: #ffffff;
 `;
@@ -67,7 +67,7 @@ const DropDownDay = () => {
 
     useEffect(() => {
       const useOption = selectedOption;
-      console.log(useOption);
+      // console.log(useOption);
 
     })
 
@@ -80,7 +80,7 @@ const DropDownDay = () => {
 
   return (
     <div>
-    <h3>Select Day</h3>
+    <h4>Select Day</h4>
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>
           {selectedOption || "Thursday"}

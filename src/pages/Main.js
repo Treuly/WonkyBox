@@ -2,20 +2,20 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import DropDownDay from "../components/DropDownDay";
 import DropDownRegion from "../components/DropDownRegion";
-
 import MapSVG from "../components/MapSVG";
 import ProduceContainer from "../components/ProduceContainer";
 
 
-
-//highlighting map regions based on their id
 const Main = () => {
 
   //define produce array state
   let [ProduceArray, setProduceArray] = useState([]);
 
-    //stores previous locations on map when clicked
-    let previousLocations = [];
+  //variables to setstyle for scrolling produce list
+  const [style, setStyle] = useState("scrollContainer");
+
+  //stores previous locations on map when clicked
+  let previousLocations = [];
 
 
   // const changeStyle = (id) => {  
@@ -26,20 +26,27 @@ const Main = () => {
   // };
 
 //function for scroll when bottom of page is reached
-  const listInnerRef = useRef();
+const listInnerRef = useRef();
 
-  const onScroll = () => {
-    if (listInnerRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-      if (scrollTop + clientHeight === scrollHeight) {
-        console.log("reached bottom");
-      }
+{/* Function for scrolling productList keeps scroll when map is viewed and when 
+    user scrolls to bottom of page whole producelist comes out*/}
+const onScroll = () => {
+  if (listInnerRef.current) {
+    const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
+    if (Math.round(scrollTop) + clientHeight === scrollHeight) {
+      console.log("reached bottom");
+      setStyle("scrollContainer2")
+    }else{
+      setStyle("scrollContainer")
     }
-  };
+  }
+};
 
-//call to get the currentbox from the backend
+
+  {/* Function call to get current box from the backend based on day and region*/}
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/GetCurrentBox/`, {
+    // fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=Friday&region=Wellington`, {
+      fetch(`http://127.0.0.1:8000/GetCurrentBox`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -59,15 +66,15 @@ const Main = () => {
     }
   }
 
-  //map functions to highlight region and unhighlight the regions
+  {/* Function to highlight and unhighlight regions based on producelist clicked by user */}
   function highlightRegion(id) {
     let desired = document.getElementById(id);
     desired.setAttribute("fill", "#429054");
     desired.textContent =(desired.id)
-    // document.write(desired);
-    console.log(desired.id)
   }
-  //handle tap on produce item, highlight corresponding region on svg
+
+
+  {/* handle tap on produce item, highlight corresponding region on svg */}
   const onClick = (locations, id) => {
     // changeStyle(id);
     clearPreviousRegions();
@@ -77,11 +84,10 @@ const Main = () => {
     previousLocations = locations;
   };
 
-
   return (
     <div className="contentBody" onScroll={onScroll}
     ref={listInnerRef}
-    style={{ height: "auto", overflowY: "auto" }}>
+    style={{ height: "800px", overflowY: "auto" }} >
       {/* Add Map Image */}
       <div className="mapContainer">
         <MapSVG />
@@ -93,7 +99,9 @@ const Main = () => {
           <div className="dropRegion"><DropDownRegion/></div>
           </div>
           {/* Lists foor weeklybox Produce */}
-     <div className = "produceContainer"><ProduceContainer produceList={ProduceArray} onClick={onClick} /></div> 
+     <div className = "produceContainer" >
+       <ProduceContainer produceList={ProduceArray} onClick={onClick} style={style} />
+       </div> 
     </div>
   );
 };

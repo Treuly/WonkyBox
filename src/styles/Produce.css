@@ -1,5 +1,5 @@
 .producebox{
-  margin: 30px auto;
+  margin: 10px auto;
   overflow: auto;
   width: 65%;
 
@@ -56,6 +56,12 @@ color: #969733;
 
 
 }
+
+#scrollContainer2{
+  /* overflow-y:scroll; */
+  height:auto; 
+}
+
 
 .cont2{
 background-color: aqua;

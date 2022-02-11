@@ -19,7 +19,7 @@ const DropDownHeader = styled("div")`
   padding: 0.4em 2em 0.4em 1em;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   color: #969733;
   background: #ffffff;
 `;
@@ -66,13 +66,13 @@ const DropDownRegion = () => {
 
     useEffect(() => {
       const useOption = selectedOption;
-      console.log(useOption);
+      // console.log(useOption);
     })
 
     
   return (
     <div>
-    <h3>Select Region</h3>
+    <h4>Select Region</h4>
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>
           {selectedOption || "Wellington"}

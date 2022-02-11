@@ -40,14 +40,12 @@ body {
 #produceContainer{
   display: flex;
   height:60vh;
-  /* position: -webkit-sticky;
-  position: sticky; */
+  /* position: -webkit-sticky; */
+  position: sticky; 
 }
 
 /* CSS for dropdown menu */
-
 .dropContainer{
-  margin-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
