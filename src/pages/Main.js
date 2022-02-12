@@ -8,19 +8,36 @@ import CustomBox from "./CustomBox";
 //variable for day and region
 let chosenRegion;
 let chosenDay;
-let dayY;
 
 
 const Main = () => {
   //variables to setstyle for scrolling produce list
   const [style, setStyle] = useState("scrollContainer");
   const [day, setDay] = useState();
+  const [region, setRegion] = useState();
+
+
 
   //stores previous locations on map when clicked
   let previousLocations = [];
 
   //function for scroll when bottom of page is reached
   const listInnerRef = useRef();
+
+
+  {/* Statement to assign default value to day dropdown */}
+  if(day === undefined) {
+    chosenDay = "Friday"
+  }else{
+  chosenDay =day
+  }
+
+  {/* Statement to assign default value to region dropdown */}
+  if(day === undefined) {
+  chosenRegion = "Wellington"
+  }else{
+  chosenRegion = region
+  }
 
   {
     /* Function for scrolling productList keeps scroll when map is viewed and when 
@@ -37,27 +54,6 @@ const Main = () => {
       }
     }
   };
-
-  {
-    /* Get value of region from dropdown list   */
-  }
-  const getRegion = (region) => {
-      chosenRegion = region;
-  }
-
-  {
-    /* Get value of region from dropdown list   */
-  }
-  
-
-  // console.log(chosenRegion);
-  // console.log(setDay);
-
-  if(day === undefined) {
-    dayY = "Friday"
-}else{
-  dayY =day
-}
 
 
   function clearPreviousRegions() {
@@ -107,15 +103,15 @@ const Main = () => {
           <DayChooser getDay={day => setDay(day)} />
         </div>
         <div className="dropRegion">
-          <RegionChooser getRegion={getRegion} />
+          <RegionChooser getRegion={region => setRegion(region)} />
         </div>
       </div>
       {/* Lists foor weeklybox Produce */}
       <CustomBox
         onClick={onClick}
         style={style}
-        chosenRegion={chosenRegion}
-        day={dayY}
+        region={chosenRegion}
+        day={chosenDay}
       />
     </div>
   );

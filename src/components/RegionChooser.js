@@ -41,8 +41,9 @@ const RegionChooser = (props) => {
             <Dropdown.Item eventKey="Hawkes Bay">Hawkes Bay</Dropdown.Item>
             <Dropdown.Item eventKey="Manawatu-Wanganui">Manawatu-Wanganui</Dropdown.Item>
             <Dropdown.Item eventKey="Wellington">Wellington</Dropdown.Item>
+            {props.getRegion(region)} 
     </DropdownButton>
-    <h3> {props.getRegion(region)} {region}</h3>
+    <h3> {region}</h3>
   </div>
 );
 }

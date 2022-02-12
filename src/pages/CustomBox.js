@@ -8,7 +8,7 @@ import ProduceContainer from "../components/ProduceContainer";
 // let chosenRegion;
 // let chosenDay;
 
-const CustomBox = ({onClick, style, day, chosenRegion}) => {
+const CustomBox = ({onClick, style, day, region}) => {
   //define produce array state
   let [weeklyBox, setWeeklyBox] = useState([]);
   
@@ -16,7 +16,7 @@ const CustomBox = ({onClick, style, day, chosenRegion}) => {
 
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${day}&region=Wellington`, {
+    fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${day}&region=${region}`, {
         // fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${chosenDay}&region=${chosenRegion}`, {
             method: "GET",
       headers: {
@@ -27,7 +27,7 @@ const CustomBox = ({onClick, style, day, chosenRegion}) => {
       .then((resp) => resp.json())
       .then((resp) => setWeeklyBox(resp))
       .catch((error) => console.log(error));
-  }, [day]);
+  }, [day, region]);
 
 
   return (
