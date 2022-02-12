@@ -1,11 +1,16 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import DropDownDay from "../components/DropDownDay";
-import DropDownRegion from "../components/DropDownRegion";
+// import DropDownDay from "../components/DropDownDay";
+// import DropDownRegion from "../components/DropDownRegion";
 import MapSVG from "../components/MapSVG";
 import ProduceContainer from "../components/ProduceContainer";
+import { useParams } from "react-router-dom";
+
+import DayChooser from "../components/DayChooser";
+import RegionChooser from "../components/RegionChooser";
 
 
+let chosenRegion;
 const Main = () => {
 
   //define produce array state
@@ -32,12 +37,19 @@ const onScroll = () => {
     }else{
       setStyle("scrollContainer")
     }
-  }
-};
 
+  }
+}
+
+const getRegion = (region) => {
+  chosenRegion = (region)
+}
+
+console.log (chosenRegion)
 
   {/* Function call to get current box from the backend based on day and region*/}
   useEffect(() => {
+    
     fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=Friday&region=Wellington`, {
       // fetch(`http://127.0.0.1:8000/GetCurrentBox`, {
       method: "GET",
@@ -80,9 +92,11 @@ const onScroll = () => {
   };
 
   return (
-    <div className="contentBody" onScroll={onScroll}
+    <div className="contentBody" 
+    onScroll={onScroll}
     ref={listInnerRef}
-    style={{ height: "800px", overflowY: "auto" }} >
+    style={{ height: "600px", overflowY: "auto" }} 
+    >
       {/* Add Map Image */}
       <div className="mapContainer">
         <MapSVG />
@@ -90,8 +104,8 @@ const onScroll = () => {
         </div>
         <div className="dropContainer">
           {/* Add dropdown menu items */}
-          <div className="dropDay"><DropDownDay /></div>
-          <div className="dropRegion"><DropDownRegion/></div>
+          <div className="dropDay"><DayChooser /></div>
+          <div className="dropRegion"><RegionChooser getRegion={getRegion}/></div>
           </div>
           {/* Lists foor weeklybox Produce */}
      <div className = "produceContainer" >

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState, useEffect, useRef } from "react";
 
 
+
 const Main = styled("div")`
   font-family: sans-serif;
   background: #f0f0f0;
@@ -52,14 +53,13 @@ const options = ["Thursday", "Friday"];
 
 const DropDownDay = () => {
 
-    
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("Friday");
 
   
     const toggling = () => setIsOpen(!isOpen);
   
-    const onOptionClicked = value => () => {
+    const onOptionClicked = (value) => () => {
       setSelectedOption(value);
       setIsOpen(false);
 
@@ -67,23 +67,15 @@ const DropDownDay = () => {
 
     useEffect(() => {
       const useOption = selectedOption;
-      // console.log(useOption);
-
-    })
-
-
-// const selectedOption = useRef(null);
-// const [isOpen, setIsOpen] = useState(false);
-// const toggling = () => setIsOpen(!isOpen);
-
-// const onOptionClicked = () => setIsOpen(!isOpen);
+      console.log(useOption);
+    },)
 
   return (
     <div>
     <h4>Select Day</h4>
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>
-          {selectedOption || "Thursday"}
+          {selectedOption || "Friday"}
         </DropDownHeader>
         {isOpen && (
           <DropDownListContainer>
