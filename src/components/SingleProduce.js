@@ -6,10 +6,9 @@ import "../styles/Produce.css";
 
 
 const SingleProduce = ({singleProduce}) => {
-  console.log(singleProduce)
     return (
         <Link
-          to={`/Produce/${singleProduce.id}`}
+          to={`/Produce/${singleProduce.name}`}
           className="produce"
         >
           <h3>{singleProduce.name}</h3>

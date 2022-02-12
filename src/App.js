@@ -21,9 +21,9 @@ const App = () => {
     <Navbar/>
       <Routes>
       <Route path='/' element={<Main/>}/>
-      <Route path='/produce/:id/' element={<ProducePage/>}/>
+      <Route path='/produce/:name/' element={<ProducePage/>}/>
       <Route path ='/farmstead' element={<FarmsteadList/>} />
-      <Route path='/farm/:id/' element={<FarmPage/>}/>
+      <Route path='/farm/:name/' element={<FarmPage/>}/>
       <Route path ='/produce' element={<ProduceList/>}/>
       </Routes>
       <Footer/>

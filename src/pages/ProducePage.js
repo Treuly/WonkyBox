@@ -6,13 +6,12 @@ import { useState, useEffect } from "react";
 const ProducePage = ({}) => {
   //get id/name when list is clicked
   const { name } = useParams();
-  const { id } = useParams();
 
   let [produce, setProduce] = useState([]);
 
   //connect to backend server
   useEffect(() => {
-    fetch(`http://localhost:8000/produce/${id}/`, {
+    fetch(`http://127.0.0.1:8000/GetSingleProduce?name=${name}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -22,9 +21,7 @@ const ProducePage = ({}) => {
       .then((resp) => resp.json())
       .then((resp) => setProduce(resp))
       .catch((error) => console.log(error));
-  }, [id]);
-
-  // const produceName = produce.name;
+  }, [name]);
 
   return (
     <div className="producebox">
@@ -35,7 +32,7 @@ const ProducePage = ({}) => {
           <h2>{produce.category}</h2>
           <h2>{produce.description}</h2>
           <h2>{produce.seasonal_information}</h2>
-        <div className="produceImage"> <img src={"http://127.0.0.1:8000/static/Carrots.png"} width="100" height="100" className="d-inline-block align-top" alt="" /></div>
+        {/* <div className="produceImage"> <img src={"http://127.0.0.1:8000/static/Carrots.png"} width="100" height="100" className="d-inline-block align-top" alt="" /></div> */}
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import ProduceContainer from "../components/ProduceContainer";
 const Main = () => {
 
   //define produce array state
-  let [ProduceArray, setProduceArray] = useState([]);
+  let [weeklyBox, setWeeklyBox] = useState([]);
 
   //variables to setstyle for scrolling produce list
   const [style, setStyle] = useState("scrollContainer");
@@ -17,13 +17,6 @@ const Main = () => {
   //stores previous locations on map when clicked
   let previousLocations = [];
 
-
-  // const changeStyle = (id) => {  
-
-  //   // console.log(document.getElementById(id));
-  //   // document.getElementById(id).setAttribute("fill", "black");
-  //   setStyleList("cont" ? "cont" : "cont2");
-  // };
 
 //function for scroll when bottom of page is reached
 const listInnerRef = useRef();
@@ -45,8 +38,8 @@ const onScroll = () => {
 
   {/* Function call to get current box from the backend based on day and region*/}
   useEffect(() => {
-    // fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=Friday&region=Wellington`, {
-      fetch(`http://127.0.0.1:8000/GetCurrentBox`, {
+    fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=Friday&region=Wellington`, {
+      // fetch(`http://127.0.0.1:8000/GetCurrentBox`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -54,9 +47,11 @@ const onScroll = () => {
       },
     })
       .then((resp) => resp.json())
-      .then((resp) => setProduceArray(resp))
+      .then((resp) => setWeeklyBox(resp))
       .catch((error) => console.log(error));
   }, []);
+
+  
 
   function clearPreviousRegions() {
     for (let i = 0; i < previousLocations.length; i++) {
@@ -100,7 +95,7 @@ const onScroll = () => {
           </div>
           {/* Lists foor weeklybox Produce */}
      <div className = "produceContainer" >
-       <ProduceContainer produceList={ProduceArray} onClick={onClick} style={style} />
+       <ProduceContainer produceList={weeklyBox.produce} onClick={onClick} style={style} />
        </div> 
     </div>
   );

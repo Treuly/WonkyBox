@@ -7,7 +7,7 @@ import "../styles/Produce.css";
 const SingleFarm = ({singleFarm}) => {
   return (
     <Link
-      to={`/farm/${singleFarm.id}`}
+      to={`/farm/${singleFarm.name}`}
       className="produce"
     >
       <h3>{singleFarm.name}</h3>

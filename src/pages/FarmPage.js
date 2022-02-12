@@ -6,14 +6,14 @@ import { useState, useEffect } from "react";
 
 const FarmPage = ({}) => {
 
-    // const { name } = useParams();
-    const { id } = useParams();
-    console.log(id)
+    const {name} = useParams();
+    // const { id } = useParams();
+    console.log(name)
 
     let [farm, setFarm] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/farm/${id}`, {
+        fetch(`http://127.0.0.1:8000/GetSingleFarm/?name=${name}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -23,10 +23,10 @@ const FarmPage = ({}) => {
           .then((resp) => resp.json())
           .then((resp) => setFarm(resp))
           .catch((error) => console.log(error));
-      }, [id]);
+      }, [name]);
     
     
-  console.log(farm.produces)
+  console.log(farm.produce_names)
   return (
       <div>
     <div className="producebox">

@@ -10,7 +10,7 @@ const FarmsteadPage = () => {
 
     //connect to backend server
     useEffect(() => {
-      fetch(`http://localhost:8000/GetFarmInfo/`, {
+      fetch(`http://127.0.0.1:8000/GetAllFarms`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
