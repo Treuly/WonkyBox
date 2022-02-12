@@ -3,23 +3,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 
+
+
+let region;
 const RegionChooser = (props) => {
 
-    const [value,setValue]=useState('Wellington');
+    const [value,setValue]=useState(null);
     const handleSelect=(e)=>{
       console.log(e);
       setValue(e)
     }
+
+    if(value === null){
+      region ="Wellington"
+    }else{
+      region = value
+    }
+  console.log(region)
+  
 
 
   return (
     <div className="App container">
       
     <DropdownButton
-    alignRight
+    alignright = "true"
     title="Region"
     id="dropdown-menu-align-right"
-    class="btn btn-info dropdown-toggle"
     onSelect={handleSelect} 
       >
             <Dropdown.Item eventKey="Northland">Northland</Dropdown.Item>
@@ -32,8 +42,7 @@ const RegionChooser = (props) => {
             <Dropdown.Item eventKey="Manawatu-Wanganui">Manawatu-Wanganui</Dropdown.Item>
             <Dropdown.Item eventKey="Wellington">Wellington</Dropdown.Item>
     </DropdownButton>
-    <h3> {props.getRegion(value)} {value}</h3>
-    {/* <button onClick={()=>} >Click Me</button> */}
+    <h3> {props.getRegion(region)} {region}</h3>
   </div>
 );
 }

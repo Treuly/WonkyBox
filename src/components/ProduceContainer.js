@@ -8,7 +8,7 @@ const ProduceContainer = ({produceList, onClick, style}) => {
     return(
         <div className="producebox" >
         <header className="producetitle">
-            <h2>WHAT'S IN THE BOX THIS WEEKEND?</h2 >
+            <h3>WHAT'S IN THE BOX THIS WEEKEND?</h3 >
             </header>
         <div className ="producelist" id={style}>
                 {
