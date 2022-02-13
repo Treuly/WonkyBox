@@ -3,18 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import ProduceContainer from "../components/ProduceContainer";
 
 
-
-//variable for day and region
-// let chosenRegion;
-// let chosenDay;
-
 const CustomBox = ({onClick, style, day, region}) => {
   //define produce array state
-  let [weeklyBox, setWeeklyBox] = useState([]);
+  const [weeklyBox, setWeeklyBox] = useState([]);
+  //define error messages 
+  const [error, setError] = useState(null);
   
-
-
-
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${day}&region=${region}`, {
         // fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${chosenDay}&region=${chosenRegion}`, {
@@ -24,15 +18,27 @@ const CustomBox = ({onClick, style, day, region}) => {
         Accept: "application/json",
       },
     })
-      .then((resp) => resp.json())
-      .then((resp) => setWeeklyBox(resp))
-      .catch((error) => console.log(error));
+      .then(resp => {
+        if(!resp.ok){
+          throw Error('no box for this day/region, choose other options')
+        }
+        return resp.json()
+      })
+      .then(resp=>{
+         setWeeklyBox(resp)
+         setError(null)
+        })
+      .catch(error => {
+        setError(error.message);
+        setWeeklyBox("empty");
+      })
   }, [day, region]);
 
 
   return (
     <div>
       {/* Lists foor weeklybox Produce */}
+      <div ><h4>{ error && <div className="error">{error}</div>}</h4></div> 
       <div className="produceContainer">
         <ProduceContainer
           produceList={weeklyBox.produce}

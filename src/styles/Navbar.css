@@ -29,7 +29,7 @@
   .navbar a {
     color: #434f00;
     text-decoration: none;
-    margin: 10px;
+    margin: 5px;
   }
   
   .navbar .rightSide button {
@@ -64,7 +64,7 @@
   }
   
   .navbar #open a {
-    width: 65px;
+    width: 70px;
     margin: 0px;
   }
   
@@ -73,7 +73,7 @@
       width: 70px;
     }
     .navbar .leftSide {
-      padding-left: 50px;
+      padding-left: 20px;
     }
   }
   

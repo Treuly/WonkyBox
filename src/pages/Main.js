@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import MapSVG from "../components/MapSVG";
 import DayChooser from "../components/DayChooser";
 import RegionChooser from "../components/RegionChooser";
@@ -15,6 +15,12 @@ const Main = () => {
   const [style, setStyle] = useState("scrollContainer");
   const [day, setDay] = useState();
   const [region, setRegion] = useState();
+  const [highLight, setHighlight] = useState("highlight");
+  
+
+  // const [regionProduce, setRegionProduce] = useState();
+  // const [farmProduce, setFarmProduce] = useState();
+
 
 
 
@@ -39,10 +45,8 @@ const Main = () => {
   chosenRegion = region
   }
 
-  {
-    /* Function for scrolling productList keeps scroll when map is viewed and when 
-    user scrolls to bottom of page whole producelist comes out*/
-  }
+  { /* Function for scrolling productList keeps scroll when map is viewed and when 
+  user scrolls to bottom of page whole producelist comes out*/ }
   const onScroll = () => {
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
@@ -55,35 +59,46 @@ const Main = () => {
     }
   };
 
-
+  { /* Function to clear the highlight in map when user clicks on another produce*/}
   function clearPreviousRegions() {
     for (let i = 0; i < previousLocations.length; i++) {
       document
         .getElementById(previousLocations[i])
-        .setAttribute("fill", "#a2e622");
+        .setAttribute("fill", "#a2e622")
     }
   }
 
-  {
-    /* Function to highlight and unhighlight regions based on producelist clicked by user */
-  }
+  { /* Function to highlight and unhighlight regions based on producelist clicked by user */}
   function highlightRegion(id) {
     let desired = document.getElementById(id);
     desired.setAttribute("fill", "#429054");
-    desired.textContent = desired.id;
   }
 
-  {
-    /* handle tap on produce item, highlight corresponding region on svg */
-  }
-  const onClick = (locations, id) => {
+  { /* handle tap on produce item, highlight corresponding region on svg */ }
+  const onClick = (locations, farms) => {
     // changeStyle(id);
     clearPreviousRegions();
     for (let i = 0; i < locations.length; i++) {
       highlightRegion(locations[i]);
     }
     previousLocations = locations;
+    setHighlight = "highlight2"
+
+    // useEffect =(() =>{
+    // setRegionProduce(locations);
+    // setFarmProduce(farms);
+    // })
   };
+
+  //function to get props day from DayChooser component
+  const getDay = (day) => {
+    setDay(day)
+  }
+
+  //function to get props region from RegionChooser Component
+  const getRegion =(region) => {
+    setRegion(region)
+  }
 
   return (
     <div
@@ -95,15 +110,18 @@ const Main = () => {
       {/* Add Map Image */}
       <div className="mapContainer">
         <MapSVG />
-        <p></p>
+        <div>
+          {/* <p>{regionProduce}</p>
+          <p>{farmProduce}</p> */}
+          </div>
       </div>
       <div className="dropContainer">
         {/* Add dropdown menu items */}
         <div className="dropDay">
-          <DayChooser getDay={day => setDay(day)} />
+          <DayChooser getDay={getDay} />
         </div>
         <div className="dropRegion">
-          <RegionChooser getRegion={region => setRegion(region)} />
+          <RegionChooser getRegion={getRegion} />
         </div>
       </div>
       {/* Lists foor weeklybox Produce */}
