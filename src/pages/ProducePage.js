@@ -18,9 +18,15 @@ const ProducePage = ({}) => {
         Accept: "application/json",
       },
     })
-      .then((resp) => resp.json())
-      .then((resp) => setProduce(resp))
-      .catch((error) => console.log(error));
+      .then(resp => {
+        resp.json()
+      })
+      .then(resp => {
+        setProduce(resp)
+      })
+      .catch(error => {
+        console.log(error)
+      });
   }, [name]);
 
   return (

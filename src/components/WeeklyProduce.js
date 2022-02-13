@@ -1,19 +1,27 @@
 
+import { blueGrey } from '@material-ui/core/colors';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classnames from "classnames";
 
+let idstyle
+function WeeklyProduce({singleProduce, onClick, highlight}){
 
-function WeeklyProduce({singleProduce, onClick}){
+    // const highlightItem =() =>{
+    //     ((highlight === singleProduce.Name )? idstyle = "cont2" : idstyle = "cont")
+    // }    
 
     return(
-        // Get region from tapped produce, match with onClick in grandparent component
-        // <Link to={`/Produce/${produce.id}`} className = "produce" onClick={() => onClick(produce.region)}>
-        //     <h3>{produce}</h3>
-        // </Link>
 
         // Get region from tapped produce, match with onClick in grandparent component
-        <div  className = "produce"  onClick={() => onClick(singleProduce.Region, singleProduce.Farmstead, singleProduce.Name)}>
-           <div><ul><h3>{singleProduce.Name}</h3></ul></div> 
+        <div  
+        onClick={() => onClick(singleProduce.Region, singleProduce.Name)}
+        className ={classnames(["produce",
+        highlight === singleProduce.Name ? 'main-theme-color-bg cont2':null])}
+
+        >     
+  
+           <ul ><h3>  {singleProduce.Name}</h3></ul>
         </div>
     )   
 }

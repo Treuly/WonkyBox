@@ -3,7 +3,7 @@ import WeeklyProduce from "./WeeklyProduce"
 import "../styles/Produce.css";
 
 
-const ProduceContainer = ({produceList, onClick, style}) => {
+const ProduceContainer = ({produceList, onClick, style, highlight}) => {
 
     return(
         <div className="producebox" >
@@ -12,8 +12,15 @@ const ProduceContainer = ({produceList, onClick, style}) => {
             </header>
         <div className ="producelist" id={style}>
                 {
-                         produceList && produceList.map((singleProduce)=>
-                             <WeeklyProduce singleProduce={singleProduce} produceList={produceList} onClick={onClick} />)
+                         produceList && produceList.map((singleProduce, index)=>
+                             <WeeklyProduce
+                              key={index}
+                               id={index} 
+                               singleProduce={singleProduce} 
+                               produceList={produceList} 
+                               onClick={onClick}
+                               highlight={highlight}
+                                 />)
               }                
         </div>
         </div>

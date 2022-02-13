@@ -17,10 +17,16 @@ const FarmsteadPage = () => {
           Accept: "application/json",
         },
       })
-        .then((resp) => resp.json())
-        .then((resp) => setFarmList(resp))
-        .catch((error) => console.log(error));
-    }, []);
+        .then(resp => {
+          resp.json();
+        })
+        .then(resp => {
+          setFarmList(resp);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      }, []);
   
   
   return (

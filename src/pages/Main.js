@@ -8,6 +8,7 @@ import CustomBox from "./CustomBox";
 //variable for day and region
 let chosenRegion;
 let chosenDay;
+let changeStyle;
 
 
 const Main = () => {
@@ -15,14 +16,14 @@ const Main = () => {
   const [style, setStyle] = useState("scrollContainer");
   const [day, setDay] = useState();
   const [region, setRegion] = useState();
-  const [highLight, setHighlight] = useState("highlight");
+  const [highlight, setHighlight] = useState();
   
-
-  // const [regionProduce, setRegionProduce] = useState();
-  // const [farmProduce, setFarmProduce] = useState();
-
-
-
+  //function to setHighlight on clicked item on list
+  useEffect(() => {
+    changeStyle = (name) => {
+        setHighlight(name);
+    };
+  },[])
 
   //stores previous locations on map when clicked
   let previousLocations = [];
@@ -62,9 +63,9 @@ const Main = () => {
   { /* Function to clear the highlight in map when user clicks on another produce*/}
   function clearPreviousRegions() {
     for (let i = 0; i < previousLocations.length; i++) {
-      document
-        .getElementById(previousLocations[i])
-        .setAttribute("fill", "#a2e622")
+      
+      document .getElementById(previousLocations[i])
+               .setAttribute("fill", "#a2e622")
     }
   }
 
@@ -74,20 +75,23 @@ const Main = () => {
     desired.setAttribute("fill", "#429054");
   }
 
-  { /* handle tap on produce item, highlight corresponding region on svg */ }
-  const onClick = (locations, farms) => {
-    // changeStyle(id);
-    clearPreviousRegions();
+  { /* Iterate locations for map highlighting */}
+  function listHighlightRegion(locations, highlightRegion) {
     for (let i = 0; i < locations.length; i++) {
       highlightRegion(locations[i]);
     }
-    previousLocations = locations;
-    setHighlight = "highlight2"
+  }
+  
+  { /* handle tap on produce item, highlight corresponding region on svg */ }
+  const onClick = (locations, name) => {
 
-    // useEffect =(() =>{
-    // setRegionProduce(locations);
-    // setFarmProduce(farms);
-    // })
+    // changeStyle(name);
+    clearPreviousRegions();
+
+    listHighlightRegion(locations, highlightRegion);
+
+    //set locations as previouslocations for clearing previous regions
+    previousLocations = locations;
   };
 
   //function to get props day from DayChooser component
@@ -130,9 +134,11 @@ const Main = () => {
         style={style}
         region={chosenRegion}
         day={chosenDay}
+        highlight={highlight}
       />
     </div>
   );
 };
 
 export default Main;
+

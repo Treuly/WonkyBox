@@ -20,13 +20,18 @@ const FarmPage = ({}) => {
             Accept: "application/json",
           },
         })
-          .then((resp) => resp.json())
-          .then((resp) => setFarm(resp))
-          .catch((error) => console.log(error));
+          .then(resp => {
+            resp.json()
+          })
+          .then(resp => {
+            setFarm(resp)
+          })
+          .catch(error => {
+            console.log(error)
+          })
       }, [name]);
     
     
-  console.log(farm.produce_names)
   return (
       <div>
     <div className="producebox">
