@@ -9,6 +9,8 @@ import CustomBox from "./CustomBox";
 let chosenRegion;
 let chosenDay;
 let changeStyle;
+//stores previous locations on map when clicked
+let previousLocations = [];
 
 
 const Main = () => {
@@ -25,8 +27,7 @@ const Main = () => {
     };
   },[])
 
-  //stores previous locations on map when clicked
-  let previousLocations = [];
+
 
   //function for scroll when bottom of page is reached
   const listInnerRef = useRef();
@@ -62,6 +63,7 @@ const Main = () => {
 
   { /* Function to clear the highlight in map when user clicks on another produce*/}
   function clearPreviousRegions() {
+    console.log(previousLocations);
     for (let i = 0; i < previousLocations.length; i++) {
       
       document .getElementById(previousLocations[i])
@@ -85,7 +87,7 @@ const Main = () => {
   { /* handle tap on produce item, highlight corresponding region on svg */ }
   const onClick = (locations, name) => {
 
-    // changeStyle(name);
+    changeStyle(name);
     clearPreviousRegions();
 
     listHighlightRegion(locations, highlightRegion);

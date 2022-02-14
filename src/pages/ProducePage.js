@@ -15,6 +15,7 @@ const ProducePage = ({}) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer awXpFWmbbjcKzveLhJh4aHBW7ChQVLUrY836j63mRGoWr2JnsazMJgFzemgjhqE6FDMUXtaADb2AG3Xxjq`,
         Accept: "application/json",
       },
     })
