@@ -23,6 +23,24 @@ function RecipeForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Ingredient Fields", ingredientFields);
+
+        let query = ""
+        const allIngredients = ingredientFields.map(ingredientField => ingredientField.ingredient)
+        console.log(allIngredients);
+        // add all ingredients to query, replace " " with "+"
+       
+        for (let i = 0; i < allIngredients.length; i++) {
+          let toAdd = allIngredients[i];
+          if (toAdd !== "") {
+            query.replace(" ", "+")
+            query += toAdd + "+"
+          }
+        }
+    
+        query = query.slice(0, query.length - 1) // remove "+" from end of query
+        window.open('recipes/?q="recipe"+' + query, '_self')
+        //when do twice, adds another recipes to top to it. 
+        //fix to stay on recipes url? not just go straight to home?
     }
 
 
@@ -40,6 +58,7 @@ function RecipeForm() {
 
 
     return (
+        <>
         <Container>
             <h1>Search For Recipes</h1>
             <form>
@@ -70,6 +89,8 @@ function RecipeForm() {
                     onClick={handleSubmit}>Find Recipes</Button>
             </form>
         </Container>
+        <div className="gcse-searchresults-only"></div>
+        </>
     )
 }
 
