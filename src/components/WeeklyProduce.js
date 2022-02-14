@@ -7,10 +7,6 @@ import classnames from "classnames";
 let idstyle
 function WeeklyProduce({singleProduce, onClick, highlight}){
 
-    // const highlightItem =() =>{
-    //     ((highlight === singleProduce.Name )? idstyle = "cont2" : idstyle = "cont")
-    // }    
-
     return(
 
         // Get region from tapped produce, match with onClick in grandparent component
@@ -21,7 +17,7 @@ function WeeklyProduce({singleProduce, onClick, highlight}){
 
         >     
   
-           <ul ><h3>  {singleProduce.Name}</h3></ul>
+           <ul ><h3>  {singleProduce.Name.toUpperCase()}</h3></ul>
         </div>
     )   
 }
