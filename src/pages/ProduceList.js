@@ -17,15 +17,9 @@ const ProduceList = () => {
           Accept: "application/json",
         },
       })
-        .then(resp => {
-          resp.json();
-        })
-        .then(resp => {
-          setProduceList(resp)
-        })
-        .catch(error => {
-          console.log(error)
-        });
+        .then((resp) => resp.json())
+        .then((resp) => setProduceList(resp))
+        .catch((error) => console.log(error));
     }, []);
   
   

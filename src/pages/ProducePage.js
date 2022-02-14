@@ -18,15 +18,9 @@ const ProducePage = ({}) => {
         Accept: "application/json",
       },
     })
-      .then(resp => {
-        resp.json()
-      })
-      .then(resp => {
-        setProduce(resp)
-      })
-      .catch(error => {
-        console.log(error)
-      });
+      .then((resp) => resp.json())
+      .then((resp) => setProduce(resp))
+      .catch((error) => console.log(error));
   }, [name]);
 
   return (
@@ -38,7 +32,9 @@ const ProducePage = ({}) => {
           <h2>{produce.category}</h2>
           <h2>{produce.description}</h2>
           <h2>{produce.seasonal_information}</h2>
-        {/* <div className="produceImage"> <img src={"http://127.0.0.1:8000/static/Carrots.png"} width="100" height="100" className="d-inline-block align-top" alt="" /></div> */}
+          <h2>{produce.image}</h2>
+
+        <div className="produceImage"> <img src={`http://127.0.0.1:8000/${produce.image}`} width="100" height="100" className="d-inline-block align-top" alt="" /></div>
       </div>
     </div>
   );
