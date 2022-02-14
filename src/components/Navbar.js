@@ -22,6 +22,7 @@ function Navbar() {
         <Link to="/farmstead"> Farms </Link>
         <Link to="/recipes"> Recipes </Link>
         <Link to="/contact"> Contact </Link>
+  
         </div>
       </div>
       <div className="rightSide">
