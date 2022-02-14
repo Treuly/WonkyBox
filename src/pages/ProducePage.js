@@ -35,7 +35,7 @@ const ProducePage = ({}) => {
           <h2>{produce.seasonal_information}</h2>
           <h2>{produce.image}</h2>
 
-        <div className="produceImage"> <img src={`http://127.0.0.1:8000/${produce.image}`} width="100" height="100" className="d-inline-block align-top" alt="" /></div>
+        <div className="produceImage"> <img src={`http://127.0.0.1:8000/media/produce_images/${produce.image}`} width="100" height="100" className="d-inline-block align-top" alt="" /></div>
       </div>
     </div>
   );
