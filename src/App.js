@@ -8,6 +8,7 @@ import FarmsteadList from './pages/FarmsteadList';
 import ProduceList from './pages/ProduceList';
 import FarmPage from './pages/FarmPage';
 import Admin from './pages/Admin';
+import RecipePage from './pages/RecipePage';
 import Contact from './pages/Contact';
 
 
@@ -28,6 +29,7 @@ const App = () => {
       <Route path ='/farmstead' element={<FarmsteadList/>} />
       <Route path='/farm/:name/' element={<FarmPage/>}/>
       <Route path ='/produce' element={<ProduceList/>}/>
+      <Route path='/recipes' element={<RecipePage/>}/>
       <Route path ='/contact' element={<Contact/>}/>
       <Route path ='/admin' element={<Admin/>}/>
       </Routes>

@@ -78,3 +78,16 @@ color: #969733;
 background-color: #d6dc9d;
 /* color:red; */
 }
+
+.producelinks {
+  color: #8b7f75;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+
+.producelinks-show {
+  height: auto;
+  max-height: 9999px;
+  transition: all 0.5s cubic-bezier(1,0,1,0);
+}

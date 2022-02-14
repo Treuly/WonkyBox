@@ -33,6 +33,7 @@ const CustomBox = ({ onClick, style, day, region, highlight }) => {
         setWeeklyBox("empty");
       });
   }, [day, region]);
+  console.log(weeklyBox);
 
   return (
     <div>
