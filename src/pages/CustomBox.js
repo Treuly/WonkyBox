@@ -19,7 +19,7 @@ const CustomBox = ({onClick, style, day, region}) => {
     fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${day}&region=${region}`, {
         // fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${chosenDay}&region=${chosenRegion}`, {
             method: "GET",
-      headers: {
+            headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -29,10 +29,10 @@ const CustomBox = ({onClick, style, day, region}) => {
       .catch((error) => console.log(error));
   }, [day, region]);
 
-
+console.log(weeklyBox);
   return (
     <div>
-      {/* Lists foor weeklybox Produce */}
+      {/* Lists for weeklybox Produce */}
       <div className="produceContainer">
         <ProduceContainer
           produceList={weeklyBox.produce}

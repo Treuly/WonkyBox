@@ -8,8 +8,10 @@ let day;
 const DayChooser = (props) => {
 
     const [value,setValue]=useState(null);
+
+
     const handleSelect=(e)=>{
-      console.log(e);
+      // console.log(e);
       setValue(e)
     }
 
@@ -18,7 +20,7 @@ const DayChooser = (props) => {
     }else{
       day = value
     }
-  console.log(day)
+  // console.log(day)
 
 
   return (

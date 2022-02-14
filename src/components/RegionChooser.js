@@ -9,8 +9,10 @@ let region;
 const RegionChooser = (props) => {
 
     const [value,setValue]=useState(null);
+
+    
     const handleSelect=(e)=>{
-      console.log(e);
+      // console.log(e);
       setValue(e)
     }
 
@@ -19,7 +21,7 @@ const RegionChooser = (props) => {
     }else{
       region = value
     }
-  console.log(region)
+  // console.log(region)
   
 
 
