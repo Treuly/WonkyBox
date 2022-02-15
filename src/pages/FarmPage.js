@@ -27,17 +27,26 @@ const FarmPage = ({}) => {
       }, [name]);
     
     
-  console.log(farm.produce_names)
+  console.log(farm.produces)
   return (
       <div>
     <div className="producebox">
       <div className="producelist">
       <header className="producetitle">
-         <h2>{farm.name}</h2>
-         </header>
-          <h2>{farm.location}</h2>
-          <h2>{farm.description}</h2>
-          <h2>{farm.produces}</h2>
+         <h1>{farm.name}</h1>
+         </header>  
+         <br/>
+         <h3>Location</h3>
+          <h4>{farm.location}</h4>
+          <br/>
+          <h3>Description</h3>
+          <h4>{farm.description}</h4>
+          <br/>
+          <h3>Our Produce</h3>
+          <h4>{farm.produces}</h4>
+          <br/>
+          <h3>Our Story</h3>
+          <h4>{farm.farmers_story}</h4>
           <div className="produceImage"> <img src={`http://127.0.0.1:8000/media/${farm.image}`} width="300" height="300" className="d-inline-block align-top" alt="" /></div>
 
       </div>

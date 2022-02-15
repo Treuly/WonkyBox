@@ -70,9 +70,9 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-/* .mapContainer{
-  height: 45%;
-} */
+.mapContainer{
+  height: 55%;
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -85,9 +85,9 @@ body {
     padding-right: 50px;
   }
 
-  /* .mapContainer{
+  .mapContainer{
     height: 45%;
-  } */
+  }
   
 
 }

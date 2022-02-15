@@ -1,9 +1,24 @@
 svg {
-    height: 40vh;
-    display: block;
-    margin: auto;
-    position: static;
-    top: 10%;
-    left: 50%;
-    /* transform: translateX(-15%); */
+  height: 40vh;
+  display: block;
+  /* margin: 10px; */
+  position: static;
+  top: 10%;
+  left: 50%;
+}
+
+@media only screen and (max-width: 900px) {
+    svg {
+        height:30vh;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    svg {
+        height:30vh;
+    }
+
+}
+
+@media only screen and (min-width: 600px) {
 }
