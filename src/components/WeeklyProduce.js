@@ -17,7 +17,7 @@ function WeeklyProduce({singleProduce, onClick, highlight, index, toggle, select
         className ={classnames(["produce",
         highlight === singleProduce.Name ? 'main-theme-color-bg cont2':null])}
         >     
-           <ul ><h3>  {singleProduce.Name.toUpperCase()}</h3></ul>
+           <ul ><h3>  {singleProduce.Name}</h3></ul>
         </div>
         </div>
         <div className=
