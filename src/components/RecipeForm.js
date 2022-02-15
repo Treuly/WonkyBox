@@ -9,7 +9,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 
 function RecipeForm() {
-    useScript("https://cse.google.com/cse.js?cx=9cd2bf4247a5bd283");
+    useScript("https://cse.google.com/cse.js?cx=a008388c1332f50d4");
     const [ingredientFields, setIngredientFields] = useState([
         { ingredient: '' },
     ])

@@ -54,14 +54,7 @@
     display: inherit;
   }
   
-  .navbar #open .hiddenLinks {
-    display: inherit;
-    margin-left: 10px;
-  }
   
-  .navbar #close .hiddenLinks {
-    display: none;
-  }
   
   .navbar #open a {
     width: 70px;
@@ -90,14 +83,32 @@
     .navbar .rightSide button {
       display: inherit;
     }
+
+    .navbar #open .hiddenLinks {
+      display: inherit;
+      margin-left: 10px;
+    }
+    
+    .navbar #close .hiddenLinks {
+      display: none;
+    }
   }
   
   @media only screen and (min-width: 600px) {
     .navbar .rightSide button {
       display: none;
     }
-  
-    .hiddenLinks {
+
+    .navbar .hiddenLinks {
+      /* background-color: #D3D3D3; */
+    }
+
+    .navbar #open .hiddenLinks {
+      display: inherit;
+      margin-left: 10px;
+    }
+    
+    .navbar #close .hiddenLinks {
       display: none;
     }
   }

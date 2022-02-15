@@ -7,29 +7,31 @@ import Logo from "../assets/wonkylogo.png";
 
 function Navbar() {
 
-    const [openLinks, setOpenLinks] = useState(false)
+    const [openLinks, setOpenLinks] = useState(true)
   
   const toggleNavbar = () => {
       setOpenLinks(!openLinks);
   }; 
   return (
     <div className="navbar">
-      <div className="leftSide" id={openLinks ? "open" : "close"}>
+      <div className="leftSide" >
         <a href="http://wonkybox.nz" > <img src={Logo}  /> </a>
-        <div className="hiddenLinks">
+        {/* <div className="hiddenLinks">
+        <Link to="/"> Home </Link>
+        <Link to="/produce"> Produce </Link>
+        <Link to="/farmstead"> Farms </Link>
+        <Link to="/recipes"> Recipes </Link>
+        <Link to="/contact"> Contact </Link>
+        </div> */}
+      </div>
+      <div className="rightSide" id={openLinks ? "open" : "close"}>
+      <div className="hiddenLinks">
         <Link to="/"> Home </Link>
         <Link to="/produce"> Produce </Link>
         <Link to="/farmstead"> Farms </Link>
         <Link to="/recipes"> Recipes </Link>
         <Link to="/contact"> Contact </Link>
         </div>
-      </div>
-      <div className="rightSide">
-        <Link to="/"> Home </Link>
-        <Link to="/produce"> Produce </Link>
-        <Link to="/farmstead"> Farmstead </Link>
-        <Link to="/recipes"> Recipes </Link>
-        <Link to="/contact"> Contact </Link>
         <button onClick={toggleNavbar}>
           <ReorderIcon />
         </button>

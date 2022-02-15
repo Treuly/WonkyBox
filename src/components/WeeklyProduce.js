@@ -28,7 +28,13 @@ function WeeklyProduce({singleProduce, onClick, highlight, index, toggle, select
         {selected === index ? 'producelinks-show' : 'producelinks'}>
             <Link to= {`/produce/${singleProduce.Name}`}> Produce Information </Link>
             <p></p>
-            <Link to={`/farmstead/${singleProduce.Name}`}> Grower Information </Link>
+            {singleProduce.Farmstead.map((farm, index) =>
+            <Link to={`/farm/${farm}`}
+                key={index}
+            > {farm} </Link>
+            )}
+
+            
         </div>
         </>
     )   
