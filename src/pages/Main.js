@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useRef, useEffect } from "react";
 import MapSVG from "../components/MapSVG";
 import DayChooser from "../components/DayChooser";
@@ -117,9 +116,9 @@ const Main = () => {
       className="contentBody"
       onScroll={onScroll}
       ref={listInnerRef}
-      style={{ height: "600px", overflowY: "auto" }}
+      style={{ height: "650px", overflowY: "auto" }}
     >
-      <h4>Wonky Box</h4>
+      <h2>Wonky Box</h2>
       {/* Add Map Image */}
       <div className="mapContainer">
         <MapSVG />

@@ -4,16 +4,30 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height:15vh;
+    height:40vh;
   }
   
   .socialMedia svg {
     color: #434f00;
     margin: 10px;
-    font-size: 30px;
+    font-size: 50px;
     cursor: pointer;
   }
   
   .footer p {
     color: #434f00;
   }
+
+  @media only screen and (max-width: 900px) {
+    .imgFooter{
+      height:80;
+      width:250;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .imgFooter{
+      height:80;
+      width:200;
+    }
+  }  

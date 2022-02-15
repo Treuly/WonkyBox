@@ -43,7 +43,8 @@ const FarmPage = ({}) => {
           <h4>{farm.description}</h4>
           <br/>
           <h3>Our Produce</h3>
-          <h4>{farm.produces}</h4>
+          <h4>{farm.produce && farm.produce.map((oneProduce, index)=>
+          <ul key={index}>{oneProduce}</ul>)}</h4>
           <br/>
           <h3>Our Story</h3>
           <h4>{farm.farmers_story}</h4>
