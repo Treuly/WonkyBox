@@ -4,7 +4,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 // import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import "../styles/Footer.css";
-import Logo from "../assets/Logo3.png";
+import Logo from "../assets/Super.jpg";
 
 function Footer() {
   return (
@@ -13,7 +13,7 @@ function Footer() {
         <img
           src={Logo}
           width="250"
-          height="100"
+          height="120"
           className="d-inline-block align-top"
           alt=""
         />

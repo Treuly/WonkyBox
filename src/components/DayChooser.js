@@ -31,6 +31,7 @@ const DayChooser = (props) => {
       >
             <Dropdown.Item eventKey="Thursday">Thursday</Dropdown.Item>
             <Dropdown.Item eventKey="Friday">Friday</Dropdown.Item>
+            <Dropdown.Item eventKey="Saturday">Saturday</Dropdown.Item>
             {props.getDay(day)}
     </DropdownButton>
     <h4>{day}</h4>
