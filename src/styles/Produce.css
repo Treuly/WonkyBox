@@ -35,7 +35,13 @@ color: #969733;
   background: #f4f4f4;
   padding: 1px;
   cursor: pointer;
-  color: #969733;
+  /* color: #969733; */
+  color: #434f00;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
   }
 
 .error{
@@ -69,7 +75,7 @@ color: #969733;
 
 
 .cont2{
-background-color: aqua;
+background-color: #d6dc9d;
 /* color:red; */
 }
 

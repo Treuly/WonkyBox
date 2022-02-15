@@ -8,7 +8,10 @@ import CustomBox from "./CustomBox";
 //variable for day and region
 let chosenRegion;
 let chosenDay;
+
 let changeStyle;
+//stores previous locations on map when clicked
+let previousLocations = [];
 
 
 const Main = () => {
@@ -17,6 +20,11 @@ const Main = () => {
   const [day, setDay] = useState();
   const [region, setRegion] = useState();
   const [highlight, setHighlight] = useState();
+
+  //scroll when bottom of page is reached
+    const listInnerRef = useRef();
+
+  
   
   //function to setHighlight on clicked item on list
   useEffect(() => {
@@ -24,12 +32,6 @@ const Main = () => {
         setHighlight(name);
     };
   },[])
-
-  //stores previous locations on map when clicked
-  let previousLocations = [];
-
-  //function for scroll when bottom of page is reached
-  const listInnerRef = useRef();
 
 
   {/* Statement to assign default value to day dropdown */}
@@ -46,13 +48,13 @@ const Main = () => {
   chosenRegion = region
   }
 
+
   { /* Function for scrolling productList keeps scroll when map is viewed and when 
   user scrolls to bottom of page whole producelist comes out*/ }
   const onScroll = () => {
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (Math.round(scrollTop) + clientHeight === scrollHeight) {
-        console.log("reached bottom");
         setStyle("scrollContainer2");
       } else {
         setStyle("scrollContainer");
@@ -60,20 +62,23 @@ const Main = () => {
     }
   };
 
+
   { /* Function to clear the highlight in map when user clicks on another produce*/}
   function clearPreviousRegions() {
+    console.log(previousLocations);
     for (let i = 0; i < previousLocations.length; i++) {
-      
       document .getElementById(previousLocations[i])
                .setAttribute("fill", "#a2e622")
     }
   }
+
 
   { /* Function to highlight and unhighlight regions based on producelist clicked by user */}
   function highlightRegion(id) {
     let desired = document.getElementById(id);
     desired.setAttribute("fill", "#429054");
   }
+
 
   { /* Iterate locations for map highlighting */}
   function listHighlightRegion(locations, highlightRegion) {
@@ -82,12 +87,11 @@ const Main = () => {
     }
   }
   
+
   { /* handle tap on produce item, highlight corresponding region on svg */ }
   const onClick = (locations, name) => {
-
-    // changeStyle(name);
+    changeStyle(name);
     clearPreviousRegions();
-
     listHighlightRegion(locations, highlightRegion);
 
     //set locations as previouslocations for clearing previous regions
@@ -103,6 +107,7 @@ const Main = () => {
   const getRegion =(region) => {
     setRegion(region)
   }
+
 
   return (
     <div

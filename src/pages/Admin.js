@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { TextareaAutosize } from "@mui/base";
 
 let json;
+let Data;
+let JsonData;
 const Admin = () => {
-
-
-  const [inputFields, setInputFields] = React.useState([
+  const [inputFields, setInputFields] = useState([
     { Produce: "", FarmStead: "", Region: "" },
   ]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,9 +16,8 @@ const Admin = () => {
     let ProduceRaw = [size];
     let FarmSteadRaw = [size];
     let RegionRaw = [size];
-    let Data = [size];
-    let ProduceConvert = [size];
-    let JsonData = [size];
+    Data = [size];
+    JsonData = [size];
     for (let i = 0; i < size; i++) {
       ProduceRaw[i] = inputFields[i].Produce;
       FarmSteadRaw[i] = inputFields[i].FarmStead;
@@ -27,9 +26,9 @@ const Admin = () => {
       let FarmSteadData = FarmSteadRaw[i];
       let ProduceData = ProduceRaw[i];
       let ProduceInfo =
-        '"Name":["' +
+        '"Name":"' +
         ProduceData +
-        '"],"Farmstead":["' +
+        '","Farmstead":["' +
         FarmSteadData +
         '"],"Region":["' +
         RegionData +
@@ -37,14 +36,18 @@ const Admin = () => {
 
       Data[i] = "{" + ProduceInfo + "}";
     }
+
     JsonData = JSON.stringify(Data);
-    ProduceConvert = JsonData;
+    // ProduceConvert = JsonData;
     // let ProduceConvert = JSON.stringify([Data]);
     json = '{"Produce":[' + Data + "]}";
-    console.log("Size ", size);
-    console.log("Produce", json);
+    // console.log("Size ", size);
+    console.log(json);
+    document.getElementById("Test").innerHTML = json;
 
+    return json;
   };
+
   const handleChangeInput = (index, event) => {
     console.log(index, event.target.name);
     console.log(event.target.value);
@@ -65,6 +68,7 @@ const Admin = () => {
     values.splice(index, 1);
     setInputFields(values);
   };
+
   return (
     <div>
       <h1>Add New WeeklyBox</h1>
@@ -93,7 +97,7 @@ const Admin = () => {
               value={inputField.Region}
               onChange={(event) => handleChangeInput(index, event)}
             />
-            &nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={() => handleRemoveFields(index)}>-</button>
             &nbsp;&nbsp;
             <button onClick={() => handleAddFields()}>+</button>
@@ -103,9 +107,14 @@ const Admin = () => {
       <br />
       <button onClick={handleSubmit}>Convert</button> <br />
       <br />
-      <textarea id="Test" onChange={(event) => handleSubmit}>
-      This is where the text will convert
-      </textarea>
+      <TextareaAutosize
+        id="Test"
+        onChange={handleSubmit}
+        aria-label="minimum height"
+        minRows={3}
+        placeholder="Minimum 3 rows"
+        style={{ width: 450 }}
+      />
     </div>
   );
 };
