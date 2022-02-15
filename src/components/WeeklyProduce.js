@@ -20,9 +20,9 @@ function WeeklyProduce({singleProduce, onClick, highlight, index, toggle, select
         </div>
         <div className=
         {selected === index ? 'producelinks-show' : 'producelinks'}>
-            <Link to= {`/produce/${singleProduce.Name}`}> Produce Information </Link>
+            <Link to= {`/produce/${singleProduce.Name}`} style={{color: '#434f00'}}> Produce Information </Link>
             <p></p>
-            <Link to={`/farmstead/${singleProduce.Name}`}> Grower Information </Link>
+            <Link to={`/farmstead/${singleProduce.Name}`} style={{color: '#434f00'}}> Grower Information </Link>
         </div>
         </>
     )   

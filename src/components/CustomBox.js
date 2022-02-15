@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect} from "react";
-import ProduceContainer from "../components/ProduceContainer";
+import ProduceContainer from "./ProduceContainer";
 
 const CustomBox = ({ onClick, style, day, region, highlight }) => {
   //define produce array state

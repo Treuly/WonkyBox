@@ -13,6 +13,7 @@
   border: 4px solid #434f00;
   padding: 10px;
   border-radius: 5px;
+  color:#434f00;
   
 
 }
@@ -90,4 +91,8 @@ background-color: #d6dc9d;
   height: auto;
   max-height: 9999px;
   transition: all 0.5s cubic-bezier(1,0,1,0);
+}
+
+.title{
+  text-decoration: underline;
 }

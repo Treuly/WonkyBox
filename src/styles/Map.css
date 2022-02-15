@@ -9,16 +9,20 @@ svg {
 
 @media only screen and (max-width: 900px) {
     svg {
-        height:30vh;
+        height:35vh;
     }
 }
 
 @media only screen and (max-width: 600px) {
     svg {
-        height:30vh;
+        height:35vh;
     }
 
 }
 
 @media only screen and (min-width: 600px) {
+    svg {
+        height:35vh;
+    }
+
 }

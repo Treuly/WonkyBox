@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import MapSVG from "../components/MapSVG";
 import DayChooser from "../components/DayChooser";
 import RegionChooser from "../components/RegionChooser";
-import CustomBox from "./CustomBox";
+import CustomBox from "../components/CustomBox";
 
 //variable for day and region
 let chosenRegion;
@@ -123,7 +123,6 @@ const Main = () => {
       <div className="mapContainer">
         <MapSVG />
         <div>
-          {/* <p>{farmProduce}</p> */}
           </div>
       </div>
       <div className="containerBox">
