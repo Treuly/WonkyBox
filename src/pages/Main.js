@@ -116,7 +116,7 @@ const Main = () => {
       className="contentBody"
       onScroll={onScroll}
       ref={listInnerRef}
-      style={{ height: "650px", overflowY: "auto" }}
+      style={{ height: "700px", overflowY: "auto" }}
     >
       <h1>Wonky Box</h1>
       {/* Add Map Image */}

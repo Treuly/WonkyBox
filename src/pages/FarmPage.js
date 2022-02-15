@@ -63,8 +63,8 @@ const FarmPage = ({}) => {
             {" "}
             <img
               src={`http://127.0.0.1:8000/media/${farm.image}`}
-              width="300"
-              height="300"
+              width="200"
+              height="250"
               className="d-inline-block align-top"
               alt=""
             />

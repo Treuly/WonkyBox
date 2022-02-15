@@ -44,7 +44,7 @@ const ProducePage = ({}) => {
           <h3 className="title"> Additional Information</h3>
           <h4>{produce.additional_information}</h4>
 
-        <div className="produceImage"> <img src={`http://127.0.0.1:8000/media/${produce.image}`} width="500" height="300" className="d-inline-block align-top" alt="" /></div>
+        <div className="produceImage"> <img src={`http://127.0.0.1:8000/media/${produce.image}`} width="200" height="250" className="d-inline-block align-top" alt="" /></div>
       </div>
     </div>
   );
