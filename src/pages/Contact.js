@@ -3,8 +3,8 @@ import "../styles/Contact.css";
 
 const Contact = () => {
   return (
-    <div>
-     <h2><a href="https://wonkybox.nz/pages/get-in-touch">Get in Touch</a></h2> 
+    <div style={{color: '#434f00'}}>
+     <h1 ><a href="https://wonkybox.nz/pages/get-in-touch">Get in Touch</a></h1> 
       <br/>
       <p>Queries, Questions, Feedback...</p>
       <p>Contact us</p>
