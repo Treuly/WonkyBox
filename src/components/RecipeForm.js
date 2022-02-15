@@ -7,6 +7,10 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
+import "../styles/Produce.css";
+
+
+
 
 function RecipeForm() {
     useScript("https://cse.google.com/cse.js?cx=9cd2bf4247a5bd283");
@@ -59,7 +63,7 @@ function RecipeForm() {
 
     return (
         <>
-        <Container>
+        <Container >
             <h1>Search For Recipes</h1>
             <form>
                 {ingredientFields.map((ingredientField, index) => (

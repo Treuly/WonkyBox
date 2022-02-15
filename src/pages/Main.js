@@ -118,7 +118,7 @@ const Main = () => {
       ref={listInnerRef}
       style={{ height: "650px", overflowY: "auto" }}
     >
-      <h2>Wonky Box</h2>
+      <h1>Wonky Box</h1>
       {/* Add Map Image */}
       <div className="mapContainer">
         <MapSVG />
