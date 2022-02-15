@@ -38,9 +38,11 @@ const FarmPage = ({}) => {
           <h2>{farm.location}</h2>
           <h2>{farm.description}</h2>
           <h2>{farm.produces}</h2>
+          <div className="produceImage"> <img src={`http://127.0.0.1:8000/media/${farm.image}`} width="300" height="300" className="d-inline-block align-top" alt="" /></div>
+
       </div>
+
     </div>
-    <div> <img src={"http://127.0.0.1:8000/static/Banner.png"} width="800" height="150" className="d-inline-block align-top" alt="" /></div>
 
     </div>
 

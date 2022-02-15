@@ -23,6 +23,7 @@ const RegionChooser = (props) => {
       <DropdownButton
         alignright="true"
         title="Region"
+        variant="info"
         id="dropdown-menu-align-right"
         onSelect={handleSelect}
         // onClick={() =>props.getDay(day)}
@@ -40,7 +41,7 @@ const RegionChooser = (props) => {
         <Dropdown.Item eventKey="Wellington">Wellington</Dropdown.Item>
         {props.getRegion(region)}
       </DropdownButton>
-      <h3> {region}</h3>
+      <h4> {region}</h4>
     </div>
   );
 };

@@ -21,6 +21,8 @@ const Main = () => {
   const [region, setRegion] = useState();
   const [highlight, setHighlight] = useState();
 
+  const[regionProduce, setRegionProduce] = useState();
+
   //scroll when bottom of page is reached
     const listInnerRef = useRef();
 
@@ -94,6 +96,7 @@ const Main = () => {
     clearPreviousRegions();
     listHighlightRegion(locations, highlightRegion);
 
+    setRegionProduce(locations);
     //set locations as previouslocations for clearing previous regions
     previousLocations = locations;
   };
@@ -116,14 +119,17 @@ const Main = () => {
       ref={listInnerRef}
       style={{ height: "600px", overflowY: "auto" }}
     >
+      <h4>Wonky Box</h4>
       {/* Add Map Image */}
       <div className="mapContainer">
         <MapSVG />
         <div>
-          {/* <p>{regionProduce}</p>
-          <p>{farmProduce}</p> */}
+          {/* <p>{farmProduce}</p> */}
           </div>
       </div>
+      <div className="containerBox">
+      <div className="regionName"><p>{regionProduce}</p></div>
+
       <div className="dropContainer">
         {/* Add dropdown menu items */}
         <div className="dropDay">
@@ -141,6 +147,9 @@ const Main = () => {
         day={chosenDay}
         highlight={highlight}
       />
+    </div>
+    <br/>
+    <br/>
     </div>
   );
 };

@@ -4,13 +4,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height:30vh;
+    height:15vh;
   }
   
   .socialMedia svg {
     color: #434f00;
-    margin: 20px;
-    font-size: 70px;
+    margin: 10px;
+    font-size: 30px;
     cursor: pointer;
   }
   

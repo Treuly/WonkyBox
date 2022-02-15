@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import ProduceContainer from "../components/ProduceContainer";
 
 const CustomBox = ({ onClick, style, day, region, highlight }) => {
@@ -43,7 +43,7 @@ const CustomBox = ({ onClick, style, day, region, highlight }) => {
       </div>
       <div className="produceContainer">
         <ProduceContainer
-          produceList={weeklyBox.produce}
+          produceList={weeklyBox.Produce}
           onClick={onClick}
           style={style}
           highlight={highlight}

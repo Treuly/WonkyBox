@@ -9,13 +9,9 @@ const DayChooser = (props) => {
 
     const [value,setValue]=useState(null);
     const handleSelect=(e)=>{
-      // console.log(e);
       setValue(e)
     }
     
-    // useEffect(() => {
-      
-    // })
     if(value === null){
       day ="Friday"
     }else{
@@ -29,6 +25,7 @@ const DayChooser = (props) => {
     <DropdownButton
     alignright = "true"
     title="Day"
+    variant="info"
     id="dropdown-menu-align-right"
     onSelect={handleSelect}
       >
@@ -36,7 +33,7 @@ const DayChooser = (props) => {
             <Dropdown.Item eventKey="Friday">Friday</Dropdown.Item>
             {props.getDay(day)}
     </DropdownButton>
-    <h3>{day}</h3>
+    <h4>{day}</h4>
   </div>
 );
 }

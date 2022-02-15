@@ -20,7 +20,7 @@ const ProduceContainer = ({produceList, onClick, style, highlight}) => {
     return(
         <div className="producebox" >
         <header className="producetitle">
-            <h3>WHAT'S IN THE BOX THIS WEEKEND?</h3 >
+            <h4>WHAT'S IN THE BOX THIS WEEKEND?</h4 >
             </header>
         <div className ="producelist" id={style}>
                 {
