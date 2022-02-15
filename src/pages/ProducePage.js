@@ -7,6 +7,7 @@ const ProducePage = ({}) => {
   //get id/name when list is clicked
   const { name } = useParams();
 
+  //produce array
   let [produce, setProduce] = useState([]);
 
   //connect to backend server

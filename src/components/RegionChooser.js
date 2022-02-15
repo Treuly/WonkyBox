@@ -11,6 +11,7 @@ const RegionChooser = (props) => {
     setValue(e);
   };
 
+  //set default value of region as Wellington
   if (value === null) {
     region = "Wellington";
   } else {

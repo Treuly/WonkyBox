@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import ProduceContainer from "./ProduceContainer";
 
 const CustomBox = ({ onClick, style, day, region, highlight }) => {
@@ -8,7 +8,9 @@ const CustomBox = ({ onClick, style, day, region, highlight }) => {
   //define error messages
   const [error, setError] = useState(null);
 
-  { /*Fetch backend data by name and region */ }
+  {
+    /*Fetch backend data by name and region */
+  }
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${day}&region=${region}`, {
       method: "GET",
