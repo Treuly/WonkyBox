@@ -26,8 +26,7 @@ const RegionChooser = (props) => {
         title="Region"
         variant="info"
         id="dropdown-menu-align-right"
-        onSelect={handleSelect}
-        // onClick={() =>props.getDay(day)}
+        onSelect={(event) => handleSelect(event)}
       >
         <Dropdown.Item eventKey="Northland">Northland</Dropdown.Item>
         <Dropdown.Item eventKey="Auckland">Auckland</Dropdown.Item>
@@ -40,8 +39,8 @@ const RegionChooser = (props) => {
           Manawatu-Wanganui
         </Dropdown.Item>
         <Dropdown.Item eventKey="Wellington">Wellington</Dropdown.Item>
-        {props.getRegion(region)}
       </DropdownButton>
+      {props.getRegion(region)}
       <h4> {region}</h4>
     </div>
   );

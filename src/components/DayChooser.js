@@ -20,17 +20,17 @@ const DayChooser = (props) => {
   return (
     <div className="App container">
       <DropdownButton
+        onSelect={(event) => handleSelect(event)}
         alignright="true"
         title="Day"
         variant="info"
         id="dropdown-menu-align-right"
-        onSelect={handleSelect}
       >
         <Dropdown.Item eventKey="Thursday">Thursday</Dropdown.Item>
         <Dropdown.Item eventKey="Friday">Friday</Dropdown.Item>
         <Dropdown.Item eventKey="Saturday">Saturday</Dropdown.Item>
-        {props.getDay(day)}
       </DropdownButton>
+      {props.getDay(day)}
       <h4>{day}</h4>
     </div>
   );
