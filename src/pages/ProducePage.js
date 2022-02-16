@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "../styles/Produce.css";
 import { useState, useEffect } from "react";
 
-const ProducePage = ({}) => {
+const ProducePage = () => {
   //get id/name when list is clicked
   const { name } = useParams();
 

@@ -1,7 +1,9 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import Main from './pages/Main';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { useState } from 'react';
 import Footer from './components/Footer';
 import ProducePage from './pages/ProducePage';
 import FarmsteadList from './pages/FarmsteadList';
@@ -11,18 +13,20 @@ import Admin from './pages/Admin';
 import RecipePage from './pages/RecipePage';
 import Contact from './pages/Contact';
 
-
-
-
-
-
 const App = () => {
-  //for click button c
-  //Array of produce for generating produce list
+  //click handler for navbar
+  const [openLinks, setOpenLinks] = useState(false)
+  
+  const toggleNavbar = () => {
+      setOpenLinks(!openLinks);
+  };
+
+
   return (
     <div className="App">
     <Router>
-    <Navbar/>
+    <Sidebar toggleNavbar={toggleNavbar} openLinks={openLinks}/>
+    <Navbar toggleNavbar={toggleNavbar} openLinks={openLinks}/>
       <Routes>
       <Route path='/' element={<Main/>}/>
       <Route path='/produce/:name/' element={<ProducePage/>}/>
