@@ -1,10 +1,11 @@
 import React from 'react';
 
+
 import RecipeForm from '../components/RecipeForm';
 
 const RecipePage = () => {
     return (
-        <div>
+        <div className="recipeContainer">
             <RecipeForm />
         </div>
     )

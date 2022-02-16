@@ -1,9 +1,8 @@
-import React from "react";
 import { useState, useRef, useEffect } from "react";
 import MapSVG from "../components/MapSVG";
 import DayChooser from "../components/DayChooser";
 import RegionChooser from "../components/RegionChooser";
-import CustomBox from "./CustomBox";
+import CustomBox from "../components/CustomBox";
 
 //variable for day and region
 let chosenRegion;
@@ -20,6 +19,8 @@ const Main = () => {
   const [day, setDay] = useState();
   const [region, setRegion] = useState();
   const [highlight, setHighlight] = useState();
+
+  const[regionProduce, setRegionProduce] = useState();
 
   //scroll when bottom of page is reached
     const listInnerRef = useRef();
@@ -94,6 +95,7 @@ const Main = () => {
     clearPreviousRegions();
     listHighlightRegion(locations, highlightRegion);
 
+    setRegionProduce(locations);
     //set locations as previouslocations for clearing previous regions
     previousLocations = locations;
   };
@@ -114,16 +116,18 @@ const Main = () => {
       className="contentBody"
       onScroll={onScroll}
       ref={listInnerRef}
-      style={{ height: "600px", overflowY: "auto" }}
+      style={{ height: "700px", overflowY: "auto" }}
     >
+      <h1>Wonky Box</h1>
       {/* Add Map Image */}
       <div className="mapContainer">
         <MapSVG />
         <div>
-          {/* <p>{regionProduce}</p>
-          <p>{farmProduce}</p> */}
           </div>
       </div>
+      <div className="containerBox">
+      <div className="regionName"><p>{regionProduce}</p></div>
+
       <div className="dropContainer">
         {/* Add dropdown menu items */}
         <div className="dropDay">
@@ -141,6 +145,9 @@ const Main = () => {
         day={chosenDay}
         highlight={highlight}
       />
+    </div>
+    <br/>
+    <br/>
     </div>
   );
 };

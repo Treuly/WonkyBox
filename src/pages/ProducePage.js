@@ -7,6 +7,7 @@ const ProducePage = () => {
   //get id/name when list is clicked
   const { name } = useParams();
 
+  //produce array
   let [produce, setProduce] = useState([]);
 
   //connect to backend server
@@ -28,14 +29,23 @@ const ProducePage = () => {
     <div className="producebox">
       <div className="producelist">
       <header className="producetitle">
-         <h2>{produce.name}</h2>
+         <h1 className="title">{produce.name}</h1>
          </header>
-          <h2>{produce.category}</h2>
-          <h2>{produce.description}</h2>
-          <h2>{produce.seasonal_information}</h2>
-          <h2>{produce.image}</h2>
+          <h2 >{produce.category}</h2>
+          <br/>
+          <h3 className="title">Description</h3>
+          <h4>{produce.description}</h4>
+          <br/>
+          <h3 className="title">Seasonal Information</h3>
+          <h4>{produce.seasonal_information}</h4>
+          <br/>
+          <h3 className="title">Storage Tips</h3>
+          <h4>{produce.storage}</h4>
+          <br/>
+          <h3 className="title"> Additional Information</h3>
+          <h4>{produce.additional_information}</h4>
 
-        <div className="produceImage"> <img src={`http://127.0.0.1:8000/media/produce_images/${produce.image}`} width="100" height="100" className="d-inline-block align-top" alt="" /></div>
+        <div className="produceImage"> <img src={`http://127.0.0.1:8000/media/${produce.image}`} width="200" height="250" className="d-inline-block align-top" alt="" /></div>
       </div>
     </div>
   );

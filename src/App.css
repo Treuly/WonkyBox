@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  font-family: "Anonymous Pro", sans-serif;
 }
 
 body {
@@ -18,14 +19,12 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   overflow-y:auto;
-    /* position: sticky; */
+    position: sticky;
 
 }
 .mapContainer{
-  /* position: fixed;
-  z-index: 999; */
-  /* position: -webkit-sticky; */
-  /* position: sticky; */
+  align-items: center;
+  /* z-index: 999; */
   top: 0;
   display:flex;
   justify-content: center;
@@ -34,9 +33,9 @@ body {
 .produceContainer{
   display: flex;
   height: auto;
-  /* position: -webkit-sticky;
-  position: sticky; */
+  position: sticky; 
 }
+
 #produceContainer{
   display: flex;
   height:60vh;
@@ -61,9 +60,19 @@ body {
 
 }
 
+.containerBox{
+  overflow-y:auto;
 
-@media only screen and (max-width: 900px) {
+}
 
+.regionName{
+  position: relative;
+}
+
+@media only screen and (max-width: 950px) {
+.mapContainer{
+  height: 55%;
+}
 }
 
 @media only screen and (max-width: 600px) {
@@ -76,7 +85,17 @@ body {
     padding-right: 50px;
   }
 
+  .mapContainer{
+    height: 45%;
+  }
+  
+
 }
 
 @media only screen and (min-width: 600px) {
+
+  /* .mapContainer{
+    height: 45%;
+  }
+   */
 }

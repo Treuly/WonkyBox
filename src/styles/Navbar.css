@@ -178,16 +178,16 @@
   
   
   .navbar #open a {
-    width: 60px;
+    width: 50px;
     margin: 0px;
   }
   
   @media only screen and (max-width: 900px) {
     .navbar .rightSide a {
-      width: 60px;
+      width: 50px;
     }
     .navbar .leftSide {
-      padding-left: 15px;
+      padding-left: 10px;
     }
   }
   
