@@ -12,7 +12,7 @@ const CustomBox = ({ onClick, style, day, region, highlight }) => {
     /*Fetch backend data by name and region */
   }
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/GetWeeklyBox/?day=${day}&region=${region}`, {
+    fetch(`https://wonkyboxnz-django.herokuapp.com/GetWeeklyBox/?day=${day}&region=${region}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -1,15 +1,34 @@
-import React, { useState } from "react";
+import React from 'react'
+import { useState, useEffect } from "react";
 import { TextareaAutosize } from "@mui/base";
+import JsonProduceChooser from "../components/JsonProduceChooser";
+import JsonFarmsteadChooser from "../components/JsonFarmsteadChooser";
 
 let json;
 let Data;
 let JsonData;
+
 const Admin = () => {
   const [inputFields, setInputFields] = useState([
-    { Produce: "", FarmStead: "", Region: "" },
+    { Produce: '', FarmStead: '', Region: '' },
   ]);
 
-  
+  let [farmList, setFarmList] = useState([]);
+
+  //connect to backend server
+  useEffect(() => {
+    fetch(`https://wonkyboxnz-django.herokuapp.com/GetAllFarms`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer awXpFWmbbjcKzveLhJh4aHBW7ChQVLUrY836j63mRGoWr2JnsazMJgFzemgjhqE6FDMUXtaADb2AG3Xxjq`,
+        Accept: "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((resp) => setFarmList(resp))
+      .catch((error) => console.log(error));
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,20 +39,25 @@ const Admin = () => {
     let RegionRaw = [size];
     Data = [size];
     JsonData = [size];
+
     for (let i = 0; i < size; i++) {
       ProduceRaw[i] = inputFields[i].Produce;
       FarmSteadRaw[i] = inputFields[i].FarmStead;
-      RegionRaw[i] = inputFields[i].Region;
-      let RegionData = RegionRaw[i];
-      let FarmSteadData = FarmSteadRaw[i];
       let ProduceData = ProduceRaw[i];
+      let FarmSteadData = FarmSteadRaw[i];
+
+      let selected_farm
+      for (let ii = 0; ii < farmList.length; ii++) {
+        if (farmList[ii].name === FarmSteadRaw[i]) selected_farm = farmList[ii]
+      }
+
       let ProduceInfo =
         '"Name":"' +
         ProduceData +
         '","Farmstead":["' +
         FarmSteadData +
         '"],"Region":["' +
-        RegionData +
+        selected_farm.region +
         '"]';
 
       Data[i] = "{" + ProduceInfo + "}";
@@ -43,7 +67,6 @@ const Admin = () => {
     // ProduceConvert = JsonData;
     // let ProduceConvert = JSON.stringify([Data]);
     json = '{"Produce":[' + Data + "]}";
-    // console.log("Size ", size);
     console.log(json);
     document.getElementById("Test").innerHTML = json;
 
@@ -51,10 +74,9 @@ const Admin = () => {
   };
 
   const handleChangeInput = (index, event) => {
-    console.log(index, event.target.name);
-    console.log(event.target.value);
+    const textValues = event.split(":");
     const values = [...inputFields];
-    values[index][event.target.name] = event.target.value;
+    values[index][textValues[0]] = textValues[1];
     setInputFields(values);
   };
 
@@ -76,28 +98,23 @@ const Admin = () => {
       <h1>Add New WeeklyBox</h1>
       <form onSubmit={handleSubmit}>
         {inputFields.map((inputField, index) => (
-          <div key={index}>
-            <input
+          <div key={index} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '5px' }}>
+            <JsonProduceChooser
               name="Produce"
               label="Produce"
               variant="filled"
+              index={index}
               value={inputField.Produce}
-              onChange={(event) => handleChangeInput(index, event)}
+              onSelect={(event) => handleChangeInput(index, event)}
             />
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input
+            <JsonFarmsteadChooser
               name="FarmStead"
               label="FarmStead"
               variant="filled"
+              index={index}
               value={inputField.FarmStead}
-              onChange={(event) => handleChangeInput(index, event)}
-            />
-            <input
-              name="Region"
-              label="Region"
-              variant="filled"
-              value={inputField.Region}
-              onChange={(event) => handleChangeInput(index, event)}
+              onSelect={(event) => handleChangeInput(index, event)}
             />
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={() => handleRemoveFields(index)}>-</button>

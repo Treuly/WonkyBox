@@ -4,7 +4,7 @@ import "../styles/Produce.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const FarmPage = ({}) => {
+const FarmPage = ({ }) => {
   const { name } = useParams();
   // const { id } = useParams();
   console.log(name);
@@ -12,7 +12,7 @@ const FarmPage = ({}) => {
   let [farm, setFarm] = useState([]);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/GetSingleFarm/?name=${name}`, {
+    fetch(`https://wonkyboxnz-django.herokuapp.com/GetSingleFarm/?name=${name}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -41,8 +41,8 @@ const FarmPage = ({}) => {
           <h4>{farm.description}</h4>
           <br />
           <h3 className="title">Our Produce</h3>
-          
-            {/* {farm.produce &&
+
+          {/* {farm.produce &&
               farm.produce.map((oneProduce, index) => (
                 <ul key={index}>{oneProduce}</ul>
               ))}
@@ -51,7 +51,7 @@ const FarmPage = ({}) => {
           <h4>
             {farm.produce &&
               farm.produce.map((oneProduce, index) => (
-              <Link to={`/Produce/${oneProduce}`} style={{textDecoration: 'none' , color: '#434f00'}}> <ul key={index}>{oneProduce}</ul></Link>
+                <Link to={`/Produce/${oneProduce}`} style={{ textDecoration: 'none', color: '#434f00' }}> <ul key={index}>{oneProduce}</ul></Link>
               ))}
           </h4>
 
@@ -62,7 +62,7 @@ const FarmPage = ({}) => {
           <div className="produceImage">
             {" "}
             <img
-              src={`http://127.0.0.1:8000/media/${farm.image}`}
+              src={`https://wonkyboxnz-django.herokuapp.com/media/${farm.image}`}
               width="200"
               height="250"
               className="d-inline-block align-top"

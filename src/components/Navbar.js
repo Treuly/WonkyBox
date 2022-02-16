@@ -6,26 +6,26 @@ import "../styles/Sidebar.css";
 import Logo from "../assets/wonkylogo.png";
 
 
-function Navbar({toggleNavbar}) {
- 
+function Navbar({ toggleNavbar }) {
+
   return (
     <div className="navbar">
-        <a  href="http://wonkybox.nz" > 
-        <img src={Logo} className = "navLogo" /> 
-        </a>
+      <a href="/" >
+        <img src={Logo} className="navLogo" />
+      </a>
       <div className="hiddenLinks">
         <Link to="/" className="navLinks"> Home </Link>
         <Link to="/produce" className="navLinks"> Produce </Link>
         <Link to="/farmstead" className="navLinks"> Farms </Link>
         <Link to="/recipes" className="navLinks"> Recipes </Link>
         <Link to="/contact" className="navLinks"> Contact </Link>
-        </div>
-        <button onClick={toggleNavbar} 
-        className = "hamburger">
-          <ReorderIcon />
-        </button>
       </div>
-   
+      <button onClick={toggleNavbar}
+        className="hamburger">
+        <ReorderIcon />
+      </button>
+    </div>
+
   );
 }
 

@@ -10,10 +10,10 @@ import AddIcon from "@material-ui/icons/Add";
 import "../styles/Produce.css";
 
 function RecipeForm() {
-    useScript("https://cse.google.com/cse.js?cx=a008388c1332f50d4");
-    const [ingredientFields, setIngredientFields] = useState([
-        { ingredient: '' },
-    ])
+  useScript("https://cse.google.com/cse.js?cx=a008388c1332f50d4");
+  const [ingredientFields, setIngredientFields] = useState([
+    { ingredient: '' },
+  ])
 
   const handleChangeInput = (index, event) => {
     const values = [...ingredientFields];
@@ -41,7 +41,7 @@ function RecipeForm() {
     }
 
     query = query.slice(0, query.length - 1); // remove "+" from end of query
-    window.open('recipes/?q="recipe"+' + query, "_self");
+    window.open('/recipes/?q="recipe"+' + query, "_self");
     //when do twice, adds another recipes to top to it.
     //fix to stay on recipes url? not just go straight to home?
   };
