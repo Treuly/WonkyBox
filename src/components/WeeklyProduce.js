@@ -12,9 +12,10 @@ const WeeklyProduce = ({
     toggle,
     selected,}) => {
 
-
+      return (
         // Get region from tapped produce, match with onClick in grandparent component
         <>
+        <div>
         <div className = "produce-toggle" onClick={() => toggle(index)}>
         <div  
         onClick={() => onClick(singleProduce.Region, singleProduce.Name)}
@@ -54,7 +55,7 @@ const WeeklyProduce = ({
           Grower Information{" "}
         </Link>
       </div>
-    </div>
+    </>
   );
 }
 
