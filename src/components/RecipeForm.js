@@ -10,10 +10,10 @@ import AddIcon from "@material-ui/icons/Add";
 import "../styles/Produce.css";
 
 function RecipeForm() {
-  useScript("https://cse.google.com/cse.js?cx=9cd2bf4247a5bd283");
-  const [ingredientFields, setIngredientFields] = useState([
-    { ingredient: "" },
-  ]);
+    useScript("https://cse.google.com/cse.js?cx=a008388c1332f50d4");
+    const [ingredientFields, setIngredientFields] = useState([
+        { ingredient: '' },
+    ])
 
   const handleChangeInput = (index, event) => {
     const values = [...ingredientFields];

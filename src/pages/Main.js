@@ -137,7 +137,7 @@ const Main = () => {
           <RegionChooser getRegion={getRegion} />
         </div>
       </div>
-      {/* Lists foor weeklybox Produce */}
+      {/* Lists for weeklybox Produce */}
       <CustomBox
         onClick={onClick}
         style={style}
